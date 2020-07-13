@@ -8,8 +8,9 @@ jobs:
       matrix:
         targetArch: ["x86", "x64", "arm"]
         flavor: ["debug", "retail"]
-    name: static name
+    # name: static name
+    name: Compile ${{ matrix.node-version }}
     steps:
-    - name: Compile ${{ matrix.node-version }}
+    - name: Compile
       run: echo imaginaryCompiler -A ${{ matrix.targetArch }} -F ${{ matrix.flavor }}
       
