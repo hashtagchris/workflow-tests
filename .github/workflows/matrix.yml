@@ -1,0 +1,15 @@
+name: matrix
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targetArch: ["x86", "x64", "arm"]
+        flavor: ["debug", "retail"]
+    name: static name
+    steps:
+    - name: Compile ${{ matrix.node-version }}
+      run: echo imaginaryCompiler -A ${{ matrix.targetArch }} -F ${{ matrix.flavor }}
+      
