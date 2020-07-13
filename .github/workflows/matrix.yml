@@ -11,8 +11,7 @@ jobs:
     # A static display name will be qualified with matrix values
     # name: static name
     # A display name with an expression is left alone
-    # name: Build ${{ matrix.flavor }} for ${{ matrix.targetArch }} 
+    name: Build ${{ matrix.flavor }} for ${{ matrix.targetArch }} 
     steps:
     - name: Compile
       run: echo imaginaryCompiler -A ${{ matrix.targetArch }} -F ${{ matrix.flavor }}
-      
