@@ -8,8 +8,10 @@ jobs:
       matrix:
         targetArch: ["x86", "x64", "arm"]
         flavor: ["debug", "retail"]
+    # A static display name will be qualified with matrix values
     # name: static name
-    name: Compile ${{ matrix.targetArch }}
+    # A display name with an expression is left alone
+    # name: Build ${{ matrix.flavor }} for ${{ matrix.targetArch }} 
     steps:
     - name: Compile
       run: echo imaginaryCompiler -A ${{ matrix.targetArch }} -F ${{ matrix.flavor }}
