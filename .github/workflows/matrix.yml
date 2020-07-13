@@ -3,15 +3,15 @@ on: [push]
 
 jobs:
   build:
+    # A static display name will be qualified with matrix values
+    # name: static name
+    # A display name with an expression is left alone
+    name: Build ${{ matrix.flavor }} for ${{ matrix.targetArch }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         targetArch: ["x86", "x64", "arm"]
         flavor: ["debug", "retail"]
-    # A static display name will be qualified with matrix values
-    # name: static name
-    # A display name with an expression is left alone
-    name: Build ${{ matrix.flavor }} for ${{ matrix.targetArch }} 
     steps:
     - name: Compile
       run: echo imaginaryCompiler -A ${{ matrix.targetArch }} -F ${{ matrix.flavor }}
